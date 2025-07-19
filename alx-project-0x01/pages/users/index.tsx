@@ -6,7 +6,7 @@ interface UsersProps {
   posts: UserProps[];
 }
 
-const Users: React.FC<UsersProps> = ({ posts: users }) => {
+const Users: React.FC<UsersProps> = ({ posts }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
@@ -15,7 +15,7 @@ const Users: React.FC<UsersProps> = ({ posts: users }) => {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {users.map((user) => (
+        {posts.map((user) => (
           <UserCard key={user.id} {...user} />
         ))}
       </div>
