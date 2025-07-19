@@ -81,7 +81,15 @@ const UserModal: React.FC<UserModalProps> = ({ isOpen, onClose, onSubmit }) => {
     e.preventDefault();
 
     if (validateForm()) {
-      onSubmit(formData);
+      // Generate a new ID for the user
+      const newId = Date.now(); // Simple ID generation
+
+      const newUser: UserProps = {
+        id: newId,
+        ...formData,
+      };
+
+      onSubmit(newUser);
       handleClose();
     }
   };
